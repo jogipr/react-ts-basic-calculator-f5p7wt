@@ -33,7 +33,7 @@ export const AppContainer = () => {
 
   const [operations, setOperations] = useState<string[] | []>([]);
 
-  const [result, setResult] = useState<number | undefined>();
+  const [result, setResult] = useState<number | ''>();
 
   const handleNumberClick = (num: number) => {
     if (operand) {
@@ -45,6 +45,10 @@ export const AppContainer = () => {
 
   const handleOperationClick = (num: string) => {
     if (!operand) {
+      return;
+    }
+    if (num === 'C') {
+      reset();
       return;
     }
     if (num === '=') {
@@ -65,8 +69,14 @@ export const AppContainer = () => {
     const equation = operands.map((operand, index) => {
       return `${operand} ${operations[index]}`;
     });
-    console.log(equation);
     return `${equation.join('')} ${operand || ''}`;
+  };
+
+  const reset = () => {
+    setOperands([]);
+    setOperations([]);
+    setOperand('');
+    setResult('');
   };
 
   return (

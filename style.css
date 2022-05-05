@@ -36,6 +36,7 @@ p {
   background-color: beige;
   padding: 16px;
   border-radius: 16px;
+  max-width: 360px;
 }
 
 .display-container {
@@ -43,6 +44,7 @@ p {
   background-color: white;
   padding: 2rem;
   border-radius: 1rem;
+  min-height: 5vh;
 }
 
 /* .clear-button {
